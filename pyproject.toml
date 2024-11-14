@@ -1,0 +1,70 @@
+[project]
+name = "llama-index-alloydb-pg"
+dynamic = ["version"]
+description = "LlamaIndex integrations for Google Cloud AlloyDB for PostgreSQL"
+readme = "README.rst"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Google LLC", email = "googleapis-packages@google.com"}
+]
+dependencies = [
+    "google-cloud-alloydb-connector[asyncpg]>=1.2.0, <2.0.0",
+    "google-cloud-storage>=2.18.2, <3.0.0",
+    "llama-index>=0.11.0, <0.11.23",
+    "numpy>=1.24.4, <2.0.0",
+    "pgvector>=0.2.5, <1.0.0",
+    "SQLAlchemy[asyncio]>=2.0.25, <3.0.0"
+]
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "llama_index_alloydb_pg.version.__version__"}
+
+[project.urls]
+Homepage = ""
+Repository = ""
+"Bug Tracker" = ""
+Changelog = ""
+
+[project.optional-dependencies]
+test = [
+    "black[jupyter]==24.8.0",
+    "isort==5.13.2",
+    "mypy==1.11.2",
+    "pytest-asyncio==0.24.0",
+    "pytest==8.3.3",
+    "pytest-cov==6.0.0",
+    "pytest-depends==1.0.1",
+    "Pillow==11.0.0"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = "3.9"
+warn_unused_configs = true
+disallow_incomplete_defs = true
+
+exclude = [
+    'docs/*',
+    'noxfile.py'
+]
